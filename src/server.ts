@@ -1,12 +1,13 @@
 import express from 'express';
+import mongoose from 'mongoose';
+import routes from './routes';
 
 const app = express();
 
-app.use(express.json());
+mongoose.connect('mongodb://localhost:27017/WordsThatIKnowMongoDB')
 
-app.get("/", (req, res) => {
-    res.send("Server is working!");
-});
+app.use(express.json());
+app.use(routes);
 
 app.listen(1987, () => {
     console.log('server is listening');
