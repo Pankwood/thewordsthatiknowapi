@@ -1,15 +1,21 @@
 import mongoose from "mongoose";
 
+var currentDate = new Date();
+const timeStampFromTheServer = new Date(Date.UTC(currentDate.getFullYear(),
+    currentDate.getMonth(), currentDate.getDate(), currentDate.getHours(),
+    currentDate.getMinutes(), currentDate.getSeconds(), currentDate.getMilliseconds()));
+
 const Word = new mongoose.Schema(
     {
         wordName: {
             type: String,
             require: true,
             lowercase: true,
+            trim: true,
         },
         createAt: {
             type: Date,
-            default: Date.now,
+            default: timeStampFromTheServer,
         }
     }
 )
