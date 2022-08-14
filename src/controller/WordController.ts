@@ -8,7 +8,7 @@ class WordController {
             return response.json(words);
         } catch (error) {
             return response.status(500).send({
-                error: "Registration error",
+                error: "Unable to retrieve words",
                 message: error,
             })
         }
