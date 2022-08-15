@@ -13,6 +13,11 @@ const Word = new mongoose.Schema(
             lowercase: true,
             trim: true,
         },
+        languageId: {
+            type: String,
+            require: true,
+            default: 'en',
+        },
         createAt: {
             type: Date,
             default: timeStampFromTheServer,
