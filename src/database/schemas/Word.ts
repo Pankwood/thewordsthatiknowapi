@@ -13,6 +13,11 @@ const Word = new mongoose.Schema(
             lowercase: true,
             trim: true,
         },
+        userId: {
+            type: Number,
+            require: true,
+            trim: true,
+        },
         languageId: {
             type: String,
             require: true,
