@@ -17,8 +17,7 @@ app.use(cors());
 app.use(routes);
 
 app.get("/", (req, res) => {
-    res.send("Express on Vercel" + process.env.MONGODB_URI + "lala");
-    console.log("x", process.env.MONGODB_URI)
+    res.send("Express on Vercel");
 });
 
 app.listen(5000, () => {
