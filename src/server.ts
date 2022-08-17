@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import routes from './routes';
 
+const expressVercel = require("express");
 
 const app = express();
 const cors = require('cors');
@@ -20,4 +21,4 @@ app.listen(5000, () => {
     console.log('server is listening');
 });
 
-export default app;
+module.exports = app;
