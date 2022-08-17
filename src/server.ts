@@ -3,21 +3,26 @@ import routes from './routes';
 
 const express = require("express");
 
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
 const app = express();
 const cors = require('cors');
 
-mongoose.connect('mongodb://localhost:27017/WordsThatIKnowMongoDB')
+mongoose.connect(process.env.MONGODB_URI || "");
 
 app.use(express.json());
 app.use(cors());
 app.use(routes);
 
 app.get("/", (req, res) => {
-    res.send("Express on Vercel");
+    res.send("Express on Vercel" + process.env.MONGODB_URI + "lala");
+    console.log("x", process.env.MONGODB_URI)
 });
 
 app.listen(5000, () => {
-    console.log("Running on port 5000.");
+    console.log("Running on port 5000." + process.env);
 });
 
 // Export the Express API
