@@ -10,7 +10,9 @@ if (process.env.NODE_ENV !== 'production') {
 const app = express();
 const cors = require('cors');
 
-mongoose.connect(process.env.MONGODB_URI || "")
+mongoose.connect(process.env.MONGODB_URI || "", {
+    dbName: "WordsThatIKnowMongoDB"
+})
     .then(() => console.log("Database connected!"))
     .catch(err => console.log(err));
 
