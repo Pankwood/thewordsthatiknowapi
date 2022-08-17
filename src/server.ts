@@ -10,7 +10,9 @@ if (process.env.NODE_ENV !== 'production') {
 const app = express();
 const cors = require('cors');
 
-mongoose.connect(process.env.MONGODB_URI || "");
+mongoose.connect(process.env.MONGODB_URI || "")
+    .then(() => console.log("Database connected!"))
+    .catch(err => console.log(err));
 
 app.use(express.json());
 app.use(cors());
@@ -21,7 +23,7 @@ app.get("/", (req, res) => {
 });
 
 app.listen(5000, () => {
-    console.log("Running on port 5000." + process.env);
+    console.log("Running on port 5000.");
 });
 
 // Export the Express API
