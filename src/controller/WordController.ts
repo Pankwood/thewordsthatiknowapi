@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Word from '../database/schemas/word';
+import Word from '../database/schemas/Word';
 
 class WordController {
     async find(request: Request, response: Response) {
