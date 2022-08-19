@@ -13,8 +13,8 @@ const cors = require('cors');
 mongoose.connect(process.env.MONGODB_URI || "", {
     dbName: "WordsThatIKnowMongoDB"
 })
-    .then(() => console.log("Database connected!"))
-    .catch(err => console.log(err));
+    .then(() => console.debug("Database connected!"))
+    .catch(err => { console.debug(err) });
 
 app.use(express.json());
 app.use(cors());
@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.listen(5000, () => {
-    console.log("Running on port 5000.");
+    console.debug("Running on port 5000.");
 });
 
 // Export the Express API

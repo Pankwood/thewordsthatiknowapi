@@ -25,7 +25,7 @@ class WordController {
                 });
 
             const word = await Word.create(request.body);
-            console.log(request.body);
+            console.debug(request.body);
             response.status(201).json(word);
         } catch (error) {
             return response.status(500).send({
