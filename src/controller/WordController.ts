@@ -14,6 +14,19 @@ class WordController {
         }
     }
 
+    async findByWordAndLanguage(request: Request, response: Response) {
+        try {
+            const words = await Word.findOne(request.params);
+            return response.json(words);
+        } catch (error) {
+            return response.status(500).send({
+                error: "Unable to retrieve word",
+                message: error,
+            })
+        }
+
+    }
+
     async create(request: Request, response: Response) {
         try {
             const wordExist = await Word.findOne(request.body);
