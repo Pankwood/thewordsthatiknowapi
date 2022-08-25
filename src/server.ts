@@ -24,7 +24,7 @@ const swaggerUi = require('swagger-ui-express'),
     swaggerDocument = require('../swagger.json');
 
 app.use(
-    '/doc',
+    '/',
     swaggerUi.serve,
     swaggerUi.setup(swaggerDocument)
 );
