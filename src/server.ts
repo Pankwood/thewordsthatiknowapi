@@ -20,9 +20,14 @@ app.use(express.json());
 app.use(cors());
 app.use(routes);
 
-app.get("/", (req, res) => {
-    res.send("Express on Vercel");
-});
+const swaggerUi = require('swagger-ui-express'),
+    swaggerDocument = require('../swagger.json');
+
+app.use(
+    '/',
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerDocument)
+);
 
 app.listen(5000, () => {
     console.debug("Running on port 5000.");
