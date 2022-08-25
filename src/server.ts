@@ -20,18 +20,11 @@ app.use(express.json());
 app.use(cors());
 app.use(routes);
 
-const swaggerUi = require('swagger-ui-express'),
-    swaggerDocument = require('../swagger.json');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
-var options = {
-    customCssUrl: '../custom-swagger-ui.css'
-};
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.use(
-    '/',
-    swaggerUi.serve,
-    swaggerUi.setup(swaggerDocument, options)
-);
 
 app.listen(5000, () => {
     console.debug("Running on port 5000.");
