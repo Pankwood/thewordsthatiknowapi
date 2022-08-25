@@ -1,5 +1,5 @@
 {
-    "swagger": "2.0",
+    "swagger": "4.5.0",
     "info": {
         "version": "1.0.0",
         "title": "Words That I Know API",
@@ -12,7 +12,7 @@
     "host": "https://thewordsthatiknowapi.vercel.app",
     "basePath": "/",
     "schemes": [
-        "http"
+        "https"
     ],
     "consumes": [
         "application/json"
