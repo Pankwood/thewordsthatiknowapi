@@ -24,7 +24,7 @@ const swaggerUi = require('swagger-ui-express'),
     swaggerDocument = require('../swagger.json');
 
 var options = {
-    customCssUrl: '../swagger-ui.css'
+    customCssUrl: '../custom-swagger-ui.css'
 };
 
 app.use(
