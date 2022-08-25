@@ -23,10 +23,14 @@ app.use(routes);
 const swaggerUi = require('swagger-ui-express'),
     swaggerDocument = require('../swagger.json');
 
+var options = {
+    customCssUrl: '../swagger-ui.css'
+};
+
 app.use(
     '/',
     swaggerUi.serve,
-    swaggerUi.setup(swaggerDocument)
+    swaggerUi.setup(swaggerDocument, options)
 );
 
 app.listen(5000, () => {
