@@ -1,5 +1,5 @@
 {
-    "swagger": "2.0.0",
+    "swagger": "2.0",
     "info": {
         "version": "1.0.0",
         "title": "Words That I Know API",
@@ -9,10 +9,10 @@
             "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "host": "https://thewordsthatiknowapi.vercel.app",
+    "host": "localhost:5000",
     "basePath": "/",
     "schemes": [
-        "https"
+        "http"
     ],
     "consumes": [
         "application/json"

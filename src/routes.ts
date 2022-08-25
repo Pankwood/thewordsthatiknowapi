@@ -9,4 +9,5 @@ routes.get("/word/:wordName/language/:languageId", WordController.findByWordAndL
 routes.post("/word", WordController.create);
 routes.get("/language", LanguageController.find);
 
+
 export default routes;
