@@ -23,7 +23,7 @@ app.use(express.static("/api-docs"));
 app.use(cors());
 app.use(routes);
 
-app.use('/api-docs', express.static('api-docs'))
+app.use('/api-docs', express.static('public'))
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
