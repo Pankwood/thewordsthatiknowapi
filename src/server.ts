@@ -24,7 +24,7 @@ app.use(express.static("/api-docs"));
 app.use(cors());
 app.use(routes);
 
-app.use(express.static(path.resolve(__dirname, "../", "public")));
+app.use(express.static(path.resolve(__dirname, "../", "api-docs")));
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
