@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGODB_URI || "", {
     .then(() => console.debug("Database connected!"))
     .catch(err => { console.debug(err) });
 
-app.use(express.json());
+//app.use(express.json());
 app.use(express.static("/api-docs"));
 
 app.use(cors());
