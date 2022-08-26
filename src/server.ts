@@ -22,6 +22,12 @@ app.use(express.static("/api-docs"));
 app.use(cors());
 app.use(routes);
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
+routes.use('/api-docs', swaggerUi.serve);
+routes.get('/api-docs', swaggerUi.setup(swaggerDocument));
+
 app.listen(5000, () => {
     console.debug("Running on port 5000.");
 });
