@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import routes from './routes';
+import path from 'path';
 
 const express = require("express");
 
@@ -9,6 +10,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const app = express();
 const cors = require('cors');
+
 
 mongoose.connect(process.env.MONGODB_URI || "", {
     dbName: "WordsThatIKnowMongoDB"
@@ -22,11 +24,14 @@ app.use(express.static("/api-docs"));
 app.use(cors());
 app.use(routes);
 
+app.use(express.static(path.resolve(__dirname, "../", "public")));
+
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
 routes.use('/api-docs', swaggerUi.serve);
 routes.get('/api-docs', swaggerUi.setup(swaggerDocument));
+
 
 app.listen(5000, () => {
     console.debug("Running on port 5000.");
