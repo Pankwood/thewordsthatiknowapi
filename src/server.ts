@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGODB_URI || "", {
     .catch(err => { console.debug(err) });
 
 app.use(express.json());
-app.use(express.static(__dirname + "/api-docs"));
+app.use(express.static("/api-docs"));
 
 app.use(cors());
 app.use(routes);
