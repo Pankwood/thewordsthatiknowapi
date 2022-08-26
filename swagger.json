@@ -15,10 +15,12 @@
         "http"
     ],
     "consumes": [
-        "application/json"
+        "application/json",
+        "text/html"
     ],
     "produces": [
-        "application/json"
+        "application/json",
+        "text/html"
     ],
     "paths": {
         "/word": {
@@ -53,7 +55,8 @@
                     }
                 ],
                 "produces": [
-                    "application/json"
+                    "application/json",
+                    "text/html"
                 ],
                 "responses": {
                     "200": {
