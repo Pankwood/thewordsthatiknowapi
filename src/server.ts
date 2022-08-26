@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 import routes from './routes';
-import path from 'path';
 
 const express = require("express");
 
@@ -18,13 +17,11 @@ mongoose.connect(process.env.MONGODB_URI || "", {
     .then(() => console.debug("Database connected!"))
     .catch(err => { console.debug(err) });
 
-//app.use(express.json());
+app.use(express.json());
 app.use(express.static("/api-docs"));
 
 app.use(cors());
 app.use(routes);
-
-app.use(express.static(path.resolve(__dirname, "../", "api-docs")));
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
