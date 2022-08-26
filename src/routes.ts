@@ -10,10 +10,10 @@ routes.post("/word", WordController.create);
 routes.get("/language", LanguageController.find);
 
 const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('../swagger.json');
+const swaggerDocument = require('./swagger.json');
 
 var options = {
-    customCssUrl: './public/custom-swagger-ui.css'
+    customCssUrl: 'custom-swagger-ui.css'
 };
 
 routes.use('/api-docs', swaggerUi.serve);
