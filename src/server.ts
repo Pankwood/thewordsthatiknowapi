@@ -50,13 +50,19 @@ app.use(express.static('./src/public', options));
 app.use(express.static('/src/public', options));
 app.use(express.static('/../', options));
 app.use(express.static('/../public', options));
-app.use(express.static('/./', options));
-app.use(express.static('/../public', options));
-app.use(express.static('/../public/', options));
-app.use(express.static('/./public', options));
-app.use(express.static('/./public/', options));
+app.use(express.static('/./swagger-ui.css', options));
+app.use(express.static('/../public/swagger-ui.css', options));
+app.use(express.static('/../public/swagger-ui.css', options));
+app.use(express.static('/./public/swagger-ui.css', options));
+app.use(express.static('/./public/swagger-ui.css', options));
 app.use('/static', express.static('public', options))
 app.use(express.static('*', options));
+app.use(express.static('swagger-ui.css', options));
+app.use(express.static('./swagger-ui.css/', options));
+app.use(express.static('/./swagger-ui.css/', options));
+app.use(express.static('/swagger-ui.css/', options));
+app.use(express.static('/../swagger-ui.css', options));
+
 
 
 
