@@ -28,6 +28,8 @@ app.use(express.static('./'));
 app.use(express.static('./api-docs'));
 app.use(express.static('/api-docs'));
 app.use(express.static('api-docs'));
+app.use(express.static('/src/api-docs'));
+app.use(express.static('./src/api-docs'));
 app.use(express.static('public'));
 app.use(express.static('/public'));
 app.use(express.static('./public'));
@@ -41,7 +43,7 @@ app.use(express.static('/src/public'));
 
 
 var options = {
-    customCssUrl: '/public/swagger-ui.css'
+    customCssUrl: '/../swagger-ui.css'
 };
 
 app.use('/api-docs', swaggerUi.serve);
