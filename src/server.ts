@@ -22,30 +22,40 @@ app.use(express.json());
 app.use(cors());
 app.use(routes);
 
+var options = {
+    dotfiles: 'ignore',
+    etag: false,
+    extensions: ['htm', 'html', 'css'],
+    index: false,
+    setHeaders: function (res, path, stat) {
+        res.set('x-timestamp', Date.now())
+    }
+};
+
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
-app.use(express.static('./'));
-app.use(express.static('./api-docs'));
-app.use(express.static('/api-docs'));
-app.use(express.static('api-docs'));
-app.use(express.static('/src/api-docs'));
-app.use(express.static('./src/api-docs'));
-app.use(express.static('public'));
-app.use(express.static('/public'));
-app.use(express.static('./public'));
-app.use(express.static('../public'));
-app.use(express.static('/public/'));
-app.use(express.static('src/public'));
-app.use(express.static('./src/public'));
-app.use(express.static('/src/public'));
-app.use(express.static('/../'));
-app.use(express.static('/../public'));
-app.use(express.static('/./'));
-app.use(express.static('/../public'));
-app.use(express.static('/../public/'));
-app.use(express.static('/./public'));
-app.use(express.static('/./public/'));
-app.use('/static', express.static('public'))
+app.use(express.static('./', options));
+app.use(express.static('./api-docs', options));
+app.use(express.static('/api-docs', options));
+app.use(express.static('api-docs', options));
+app.use(express.static('/src/api-docs', options));
+app.use(express.static('./src/api-docs', options));
+app.use(express.static('public', options));
+app.use(express.static('/public', options));
+app.use(express.static('./public', options));
+app.use(express.static('../public', options));
+app.use(express.static('/public/', options));
+app.use(express.static('src/public', options));
+app.use(express.static('./src/public', options));
+app.use(express.static('/src/public', options));
+app.use(express.static('/../', options));
+app.use(express.static('/../public', options));
+app.use(express.static('/./', options));
+app.use(express.static('/../public', options));
+app.use(express.static('/../public/', options));
+app.use(express.static('/./public', options));
+app.use(express.static('/./public/', options));
+app.use('/static', express.static('public', options))
 
 
 
