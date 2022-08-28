@@ -31,7 +31,12 @@ app.use(express.static('api-docs'));
 app.use(express.static('public'));
 app.use(express.static('/public'));
 app.use(express.static('./public'));
+app.use(express.static('../public'));
 app.use(express.static('/public/'));
+app.use(express.static('src/public'));
+app.use(express.static('./src/public'));
+app.use(express.static('/src/public'));
+
 
 
 
