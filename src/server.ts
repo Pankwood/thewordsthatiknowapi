@@ -25,6 +25,10 @@ app.use(routes);
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 app.use(express.static('./'));
+app.use(express.static('./api-docs'));
+app.use(express.static('/api-docs'));
+app.use(express.static('api-docs'));
+
 
 
 app.use('/api-docs', swaggerUi.serve);
