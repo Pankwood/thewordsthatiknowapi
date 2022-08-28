@@ -19,7 +19,7 @@
     "swagger-ui-express": "^4.3.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.7.4",
-    "vercel": "^28.1.0"
+    "vercel": "^19.1.2"
   },
   "devDependencies": {
     "node-env-run": "^4.0.2"
