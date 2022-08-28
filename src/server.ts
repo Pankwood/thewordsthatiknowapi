@@ -60,12 +60,12 @@ app.use('/static', express.static('public', options))
 
 
 
-var options = {
+var options2 = {
     customCssUrl: '/../swagger-ui.css'
 };
 
 app.use('/api-docs', swaggerUi.serve);
-app.get('/api-docs', swaggerUi.setup(swaggerDocument, options));
+app.get('/api-docs', swaggerUi.setup(swaggerDocument, options2));
 
 
 app.listen(5000, () => {
