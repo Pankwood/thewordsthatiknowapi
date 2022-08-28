@@ -38,8 +38,7 @@ app.use(express.static('/public/'));
 app.use(express.static('src/public'));
 app.use(express.static('./src/public'));
 app.use(express.static('/src/public'));
-
-
+app.use(express.static('/../'));
 
 
 var options = {
