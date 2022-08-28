@@ -28,7 +28,7 @@ var options = {
     extensions: ['htm', 'html', 'css'],
     index: false,
     setHeaders: function (res, path, stat) {
-        res.set('x-timestamp', Date.now())
+        res.setHeader('Content-Type', 'text/css')
     }
 };
 
