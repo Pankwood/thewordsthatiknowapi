@@ -29,6 +29,10 @@ app.use(express.static('./api-docs'));
 app.use(express.static('/api-docs'));
 app.use(express.static('api-docs'));
 app.use(express.static('public'));
+app.use(express.static('/public'));
+app.use(express.static('./public'));
+app.use(express.static('/public/'));
+
 
 
 var options = {
