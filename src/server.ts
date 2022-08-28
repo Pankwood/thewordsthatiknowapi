@@ -31,10 +31,12 @@ app.use(express.static('api-docs'));
 app.use(express.static('public'));
 
 
-
+var options = {
+    customCssUrl: '/public/swagger-ui.css'
+};
 
 app.use('/api-docs', swaggerUi.serve);
-app.get('/api-docs', swaggerUi.setup(swaggerDocument));
+app.get('/api-docs', swaggerUi.setup(swaggerDocument, options));
 
 
 app.listen(5000, () => {
