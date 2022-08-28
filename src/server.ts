@@ -18,20 +18,18 @@ mongoose.connect(process.env.MONGODB_URI || "", {
     .catch(err => { console.debug(err) });
 
 app.use(express.json());
-app.use(express.static("/api-docs"));
 
 app.use(cors());
 app.use(routes);
 
-app.use('/api-docs', express.static('public'))
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const pathToSwaggerUi = require('swagger-ui-dist').absolutePath();
 app.use(express.static(pathToSwaggerUi));
 
 
-routes.use('/api-docs', swaggerUi.serve);
-routes.get('/api-docs', swaggerUi.setup(swaggerDocument));
+app.use('/api-docs', swaggerUi.serve);
+app.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
 
 app.listen(5000, () => {
