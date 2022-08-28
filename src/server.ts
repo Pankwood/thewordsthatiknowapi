@@ -28,6 +28,8 @@ app.use(express.static('./'));
 app.use(express.static('./api-docs'));
 app.use(express.static('/api-docs'));
 app.use(express.static('api-docs'));
+app.use(express.static('public'));
+
 
 
 
