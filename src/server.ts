@@ -5,37 +5,30 @@ import mongoose from 'mongoose';
 import routes from './routes';
 
 const express = require("express");
+const app = express();
 
 const ROOT_FOLDER = path.join(__dirname, '..');
 const SRC_FOLDER = path.join(ROOT_FOLDER, 'src');
-const app = express();
-//app.set('trust proxy', 1); // trust first proxy
 
-//app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
+
 app.use(cors());
 app.use(routes);
-
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
-// database
+
 mongoose.connect(process.env.MONGODB_URI || "", {
     dbName: "WordsThatIKnowMongoDB"
 })
     .then(() => console.debug("Database connected!"))
     .catch(err => { console.debug(err) });
 
-
-//app.use(express.static(path.join(ROOT_FOLDER, 'build'), { index: false }));
 app.use('/public', express.static(path.join(SRC_FOLDER, 'public')));
-app.use('/', express.static(path.join(SRC_FOLDER, '/')));
-//app.use('/media', express.static(path.join(ROOT_FOLDER, 'public')));
-
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const options = { customCssUrl: '/public/swagger-ui.css' };
