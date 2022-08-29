@@ -33,7 +33,7 @@ mongoose.connect(process.env.MONGODB_URI || "", {
 
 //app.use(express.static(path.join(ROOT_FOLDER, 'build'), { index: false }));
 app.use('/public', express.static(path.join(SRC_FOLDER, 'public')));
-app.use('/api-docs', express.static(path.join(SRC_FOLDER, 'api-docs')));
+app.use('/', express.static(path.join(SRC_FOLDER, '/')));
 //app.use('/media', express.static(path.join(ROOT_FOLDER, 'public')));
 
 const swaggerUi = require('swagger-ui-express');
