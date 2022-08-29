@@ -32,9 +32,9 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(ROOT_FOLDER, 'build'), { index: false }));
+app.use(express.static(path.join(ROOT_FOLDER, 'build'), { index: false,  }));
 app.use('/static', express.static(path.join(SRC_FOLDER, 'public')));
-app.use('/media', express.static(path.join(ROOT_FOLDER, 'uploads')));
+app.use('/media', express.static(path.join(ROOT_FOLDER, 'public')));
 
 app.use(cors());
 app.use(routes);
