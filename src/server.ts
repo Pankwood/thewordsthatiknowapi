@@ -30,12 +30,9 @@ mongoose.connect(process.env.MONGODB_URI || "", {
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
-const options = {
-    customCssUrl: '/public/swagger-ui.css', customFavIcon: "/public/favicon.png"
-};
+const options = { customCssUrl: '/public/swagger-ui.css' };
 
 app.use('/public', express.static(path.join(SRC_FOLDER, 'public')));
-app.use('/favicon.ico', express.static('/public/favicon.ico'));
 app.use('/', swaggerUi.serve);
 app.get('/', swaggerUi.setup(swaggerDocument, options));
 
