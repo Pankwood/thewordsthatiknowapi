@@ -35,7 +35,7 @@ const options = {
 };
 
 app.use('/public', express.static(path.join(SRC_FOLDER, 'public')));
-app.use('/public', express.static('public'));
+app.use('/favicon.ico', express.static('/public/favicon.ico'));
 app.use('/', swaggerUi.serve);
 app.get('/', swaggerUi.setup(swaggerDocument, options));
 
