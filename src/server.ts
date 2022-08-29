@@ -34,11 +34,7 @@ const options = { customCssUrl: '/public/swagger-ui.css', customSiteTitle: "The 
 
 app.use('/public', express.static(path.join(SRC_FOLDER, 'public')));
 app.use('/', swaggerUi.serve);
-app.get('/', function (req, res, next) {
-    swaggerDocument.host = req.get('host');
-    req.swaggerDoc = swaggerDocument;
-    next();
-}, swaggerUi.serveFiles(swaggerDocument, options), swaggerUi.setup());
+app.get('/', swaggerUi.setup(swaggerDocument, options));
 
 app.listen(5000, () => {
     console.debug("Running on port 5000.");
