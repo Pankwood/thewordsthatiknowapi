@@ -9,10 +9,10 @@
             "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "host": "https://thewordsthatiknowapi.vercel.app/",
+    "host": "thewordsthatiknowapi.vercel.app",
     "basePath": "/",
     "schemes": [
-        "https"
+        "http"
     ],
     "consumes": [
         "application/json"
