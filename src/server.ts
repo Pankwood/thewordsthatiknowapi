@@ -39,7 +39,7 @@ mongoose.connect(process.env.MONGODB_URI || "", {
 
 
 app.use(express.static(path.join(ROOT_FOLDER, 'build'), { index: false }));
-app.use('/static', express.static(path.join(SRC_FOLDER, 'public')));
+app.use('/public', express.static(path.join(SRC_FOLDER, 'public')));
 app.use('/media', express.static(path.join(ROOT_FOLDER, 'public')));
 
 
@@ -49,7 +49,7 @@ const swaggerDocument = require('./swagger.json');
 
 var options = {
     explorer: true,
-    customCssUrl: '/../swagger-ui.css'
+    customCssUrl: '/public/swagger-ui.css'
 };
 
 app.use('/api-docs', swaggerUi.serve);
