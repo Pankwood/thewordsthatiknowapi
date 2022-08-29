@@ -1,5 +1,12 @@
 import mongoose from 'mongoose';
 import routes from './routes';
+import bodyParser from 'body-parser';
+import path from 'path';
+
+
+
+const ROOT_FOLDER = path.join(__dirname, '..');
+const SRC_FOLDER = path.join(ROOT_FOLDER, 'src');
 
 const express = require("express");
 
@@ -17,62 +24,32 @@ mongoose.connect(process.env.MONGODB_URI || "", {
     .then(() => console.debug("Database connected!"))
     .catch(err => { console.debug(err) });
 
-app.use(express.json());
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// parse requests of content-type - application/json
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(ROOT_FOLDER, 'build'), { index: false }));
+app.use('/static', express.static(path.join(SRC_FOLDER, 'public')));
+app.use('/media', express.static(path.join(ROOT_FOLDER, 'uploads')));
 
 app.use(cors());
 app.use(routes);
 
-var options = {
-    dotfiles: 'ignore',
-    etag: false,
-    extensions: ['htm', 'html', 'css'],
-    index: false,
-    setHeaders: function (res, path, stat) {
-        res.setHeader('Content-Type', 'text/css')
-    }
-};
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
-app.use(express.static('./', options));
-app.use(express.static('./api-docs', options));
-app.use(express.static('/api-docs', options));
-app.use(express.static('api-docs', options));
-app.use(express.static('/src/api-docs', options));
-app.use(express.static('./src/api-docs', options));
-app.use(express.static('public', options));
-app.use(express.static('/public', options));
-app.use(express.static('./public', options));
-app.use(express.static('../public', options));
-app.use(express.static('/public/', options));
-app.use(express.static('src/public', options));
-app.use(express.static('./src/public', options));
-app.use(express.static('/src/public', options));
-app.use(express.static('/../', options));
-app.use(express.static('/../public', options));
-app.use(express.static('/./swagger-ui.css', options));
-app.use(express.static('/../public/swagger-ui.css', options));
-app.use(express.static('/../public/swagger-ui.css', options));
-app.use(express.static('/./public/swagger-ui.css', options));
-app.use(express.static('/./public/swagger-ui.css', options));
-app.use('/static', express.static('public', options))
-app.use(express.static('*', options));
-app.use(express.static('swagger-ui.css', options));
-app.use(express.static('./swagger-ui.css/', options));
-app.use(express.static('/./swagger-ui.css/', options));
-app.use(express.static('/swagger-ui.css/', options));
-app.use(express.static('/../swagger-ui.css', options));
 
 
-
-
-
-var options2 = {
+var options = {
     customCssUrl: '/../swagger-ui.css'
 };
 
 app.use('/api-docs', swaggerUi.serve);
-app.get('/api-docs', swaggerUi.setup(swaggerDocument, options2));
+app.get('/api-docs', swaggerUi.setup(swaggerDocument, options));
 
 
 app.listen(5000, () => {
