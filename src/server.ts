@@ -32,8 +32,8 @@ app.use('/public', express.static(path.join(SRC_FOLDER, 'public')));
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const options = { customCssUrl: '/public/swagger-ui.css' };
-app.use('/api-docs', swaggerUi.serve);
-app.get('/api-docs', swaggerUi.setup(swaggerDocument, options));
+app.use('/', swaggerUi.serve);
+app.get('/', swaggerUi.setup(swaggerDocument, options));
 
 app.listen(5000, () => {
     console.debug("Running on port 5000.");
