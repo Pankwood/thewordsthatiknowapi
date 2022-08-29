@@ -9,18 +9,16 @@
             "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "host": "localhost:5000",
+    "host": "https://thewordsthatiknowapi.vercel.app/",
     "basePath": "/",
     "schemes": [
-        "http"
+        "https"
     ],
     "consumes": [
-        "application/json",
-        "text/html"
+        "application/json"
     ],
     "produces": [
-        "application/json",
-        "text/html"
+        "application/json"
     ],
     "paths": {
         "/word": {
@@ -55,8 +53,7 @@
                     }
                 ],
                 "produces": [
-                    "application/json",
-                    "text/html"
+                    "application/json"
                 ],
                 "responses": {
                     "200": {

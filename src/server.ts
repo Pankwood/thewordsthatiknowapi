@@ -30,7 +30,7 @@ mongoose.connect(process.env.MONGODB_URI || "", {
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
-const options = { customCssUrl: '/public/swagger-ui.css' };
+const options = { customCssUrl: '/public/swagger-ui.css', customSiteTitle: "The Words That I Know API - Swagger" };
 
 app.use('/public', express.static(path.join(SRC_FOLDER, 'public')));
 app.use('/', swaggerUi.serve);
