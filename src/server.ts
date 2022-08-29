@@ -9,16 +9,16 @@ const express = require("express");
 const ROOT_FOLDER = path.join(__dirname, '..');
 const SRC_FOLDER = path.join(ROOT_FOLDER, 'src');
 const app = express();
-app.set('trust proxy', 1); // trust first proxy
+//app.set('trust proxy', 1); // trust first proxy
 
-app.use(express.json());
-app.use(cors());
-app.use(routes);
+//app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
-
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
+app.use(cors());
+app.use(routes);
+
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
