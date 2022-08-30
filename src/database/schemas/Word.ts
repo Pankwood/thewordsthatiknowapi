@@ -9,19 +9,18 @@ const Word = new mongoose.Schema(
     {
         wordName: {
             type: String,
-            require: true,
+            required: true,
             lowercase: true,
             trim: true,
         },
         userId: {
             type: Number,
-            require: true,
+            required: true,
             trim: true,
         },
         languageId: {
             type: String,
-            require: true,
-            default: 'en',
+            required: true,
         },
         createAt: {
             type: Date,

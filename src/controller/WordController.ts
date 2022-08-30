@@ -28,24 +28,39 @@ class WordController {
     }
 
     async create(request: Request, response: Response) {
-        try {
-            const wordExist = await Word.findOne(request.body);
-
-            if (wordExist)
-                return response.status(400).json({
-                    error: "Ooops",
-                    message: "Word already exists",
+        const { wordName, languageId, userId } = request.body;
+        Word.findOne({ wordName: wordName, languageId: languageId, userId: userId }, function (err, doc) {
+            console.debug("doc", arguments);
+            if (err) {
+                return response.status(500).send({
+                    error: "Registration error",
+                    message: err,
+                })
+            }
+            if (doc) {
+                return response.status(422).json({
+                    error: "Word already exists",
+                    message: doc,
                 });
-
-            const word = await Word.create(request.body);
-            console.debug(request.body);
-            response.status(201).json(word);
-        } catch (error) {
-            return response.status(500).send({
-                error: "Registration error",
-                message: error,
-            })
-        }
+            }
+            else {
+                const word = Word.create({ wordName: wordName, languageId: languageId, userId: userId }, function (errx, docx) {
+                    if (errx?.name === "ValidationError") {
+                        return response.status(400).send({
+                            error: "Invalid data",
+                            message: errx,
+                        })
+                    }
+                    if (errx) {
+                        return response.status(500).send({
+                            error: "Registration error",
+                            message: errx,
+                        })
+                    }
+                    return response.status(201).json(docx);
+                });
+            }
+        });
     }
 }
 
