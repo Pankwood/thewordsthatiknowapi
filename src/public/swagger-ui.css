@@ -126,7 +126,7 @@
 .swagger-ui optgroup,
 .swagger-ui select,
 .swagger-ui textarea {
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 100%;
   line-height: 1.15;
   margin: 0
@@ -9249,7 +9249,7 @@
 
 .swagger-ui .opblock-tag {
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 24px;
   margin: 0 0 5px
 }
@@ -9265,7 +9265,7 @@
 .swagger-ui .opblock-tag small {
   color: #3b4151;
   flex: 2;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
   font-weight: 400;
   padding: 0 10px
@@ -9407,7 +9407,7 @@
   align-items: center;
   color: #3b4151;
   display: flex;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 12px;
   font-weight: 700;
   margin: 0 0 0 auto
@@ -9420,7 +9420,7 @@
 .swagger-ui .opblock .opblock-section-header h4 {
   color: #3b4151;
   flex: 1;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
   margin: 0
 }
@@ -9429,7 +9429,7 @@
   background: #000;
   border-radius: 3px;
   color: #fff;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
   font-weight: 700;
   min-width: 80px;
@@ -9483,7 +9483,7 @@
 .swagger-ui .opblock .opblock-summary-description {
   color: #3b4151;
   flex: 1 1 auto;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 13px;
   word-break: break-word
 }
@@ -9519,7 +9519,7 @@
 }
 
 .swagger-ui .opblock.opblock-post .opblock-summary-method {
-  background: #49cc90
+  background: #07bc0c;
 }
 
 .swagger-ui .opblock.opblock-post .opblock-summary {
@@ -9570,7 +9570,7 @@
 }
 
 .swagger-ui .opblock.opblock-get .opblock-summary-method {
-  background: #61affe
+  background: #2a7ae4;
 }
 
 .swagger-ui .opblock.opblock-get .opblock-summary {
@@ -9688,7 +9688,7 @@
 .swagger-ui .tab li {
   color: #3b4151;
   cursor: pointer;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 12px;
   min-width: 60px;
   padding: 0
@@ -9727,7 +9727,7 @@
 .swagger-ui .opblock-external-docs-wrapper,
 .swagger-ui .opblock-title_normal {
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 12px;
   margin: 0 0 5px;
   padding: 15px 20px
@@ -9737,7 +9737,7 @@
 .swagger-ui .opblock-external-docs-wrapper h4,
 .swagger-ui .opblock-title_normal h4 {
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 12px;
   margin: 0 0 5px
 }
@@ -9746,7 +9746,7 @@
 .swagger-ui .opblock-external-docs-wrapper p,
 .swagger-ui .opblock-title_normal p {
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
   margin: 0
 }
@@ -9789,7 +9789,7 @@
 .swagger-ui .responses-inner h4,
 .swagger-ui .responses-inner h5 {
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 12px;
   margin: 10px 0 5px
 }
@@ -9800,7 +9800,7 @@
 
 .swagger-ui .response-col_status {
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 14px
 }
 
@@ -9813,7 +9813,7 @@
 
 .swagger-ui .response-col_links {
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
   max-width: 40em;
   padding-left: 2em
@@ -9887,7 +9887,7 @@
   color: #fff;
   cursor: pointer;
   display: flex;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
   font-weight: 600;
   height: 30px;
@@ -9914,7 +9914,7 @@
   color: #3b4151;
   display: flex;
   flex-direction: column;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 12px;
   font-weight: 700;
   margin: -20px 15px 0 0
@@ -9942,7 +9942,7 @@
 .swagger-ui .loading-container .loading:after {
   color: #3b4151;
   content: "loading";
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 10px;
   font-weight: 700;
   left: 50%;
@@ -10111,7 +10111,7 @@
   border-radius: 4px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
   font-weight: 700;
   padding: 5px 23px;
@@ -10293,7 +10293,7 @@
   border-radius: 4px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .25);
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
   font-weight: 700;
   padding: 5px 40px 5px 10px
@@ -10331,7 +10331,7 @@
 
 .swagger-ui label {
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 12px;
   font-weight: 700;
   margin: 0 0 5px
@@ -10558,14 +10558,14 @@
 .swagger-ui .dialog-ux .modal-ux-content p {
   color: #41444e;
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 12px;
   margin: 0 0 5px
 }
 
 .swagger-ui .dialog-ux .modal-ux-content h4 {
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 18px;
   font-weight: 600;
   margin: 15px 0 0
@@ -10590,7 +10590,7 @@
 .swagger-ui .dialog-ux .modal-ux-header h3 {
   color: #3b4151;
   flex: 1;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 20px;
   font-weight: 600;
   margin: 0;
@@ -10745,7 +10745,7 @@
   color: #606060;
   cursor: pointer;
   display: flex;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 16px;
   margin: 0;
   padding: 10px 20px 10px 10px;
@@ -10766,7 +10766,7 @@
 
 .swagger-ui section.models h5 {
   color: #707070;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 16px;
   margin: 0 0 10px
 }
@@ -10825,7 +10825,7 @@
 
 .swagger-ui .model-title {
   color: #505050;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 16px
 }
 
@@ -10837,7 +10837,7 @@
 
 .swagger-ui .model-deprecated-warning {
   color: #f93e3e;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 600;
   margin-right: 1em
@@ -10866,7 +10866,7 @@
 
 .swagger-ui .servers>label {
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 12px;
   margin: -20px 15px 0 0
 }
@@ -10966,7 +10966,7 @@
 .swagger-ui table thead tr th {
   border-bottom: 1px solid rgba(59, 65, 81, .2);
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 12px;
   font-weight: 700;
   padding: 12px 0;
@@ -10989,7 +10989,7 @@
 
 .swagger-ui .parameter__name {
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 400;
   margin-right: .75em
@@ -11065,8 +11065,9 @@
 }
 
 .swagger-ui .topbar {
-  background-color: #443535;
-  padding: 10px 0
+  background-color: #000;
+  padding: 10px 0;
+  border-bottom: 2px solid #2a7ae4;
 }
 
 .swagger-ui .topbar .topbar-wrapper,
@@ -11078,7 +11079,7 @@
 .swagger-ui .topbar a {
   color: #fff;
   flex: 1;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 1.5em;
   font-weight: 700;
   max-width: 300px;
@@ -11133,7 +11134,7 @@
   border: none;
   border-radius: 0 4px 4px 0;
   color: #fff;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 700;
   padding: 4px 30px
@@ -11166,7 +11167,7 @@
 .swagger-ui .info p,
 .swagger-ui .info table {
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 14px
 }
 
@@ -11181,7 +11182,7 @@
 
 .swagger-ui .info a {
   color: #4990e2;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
   transition: all .4s
 }
@@ -11205,9 +11206,9 @@
 
 .swagger-ui .info .title {
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 36px;
-  margin: 0
+  margin: 0;
 }
 
 .swagger-ui .info .title small {
@@ -11228,7 +11229,7 @@
 
 .swagger-ui .info .title small pre {
   color: #fff;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   margin: 0;
   padding: 0
 }
@@ -11300,7 +11301,7 @@
 
 .swagger-ui .scopes h2 {
   color: #3b4151;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 14px
 }
 
@@ -11363,7 +11364,7 @@
 .swagger-ui .errors-wrapper hgroup h4 {
   color: #3b4151;
   flex: 1;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 20px;
   margin: 0
 }
