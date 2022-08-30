@@ -80,7 +80,7 @@
 
 .swagger-ui mark {
   background-color: #ff0;
-  color: #000
+  color: #000;
 }
 
 .swagger-ui small {
@@ -10107,7 +10107,7 @@
 
 .swagger-ui .btn {
   background: transparent;
-  border: 2px solid gray;
+  border: 3px solid gray;
   border-radius: 4px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
   color: #3b4151;
@@ -10289,7 +10289,7 @@
   appearance: none;
   background: #f7f7f7 url("data:image/svg+xml;charset=utf-8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\"><path d=\"M13.418 7.859a.695.695 0 0 1 .978 0 .68.68 0 0 1 0 .969l-3.908 3.83a.697.697 0 0 1-.979 0l-3.908-3.83a.68.68 0 0 1 0-.969.695.695 0 0 1 .978 0L10 11l3.418-3.141z\"/></svg>") right 10px center no-repeat;
   background-size: 20px;
-  border: 2px solid #41444e;
+  border: 3px solid #41444e;
   border-radius: 4px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .25);
   color: #3b4151;
@@ -11067,7 +11067,11 @@
 .swagger-ui .topbar {
   background-color: #000;
   padding: 10px 0;
-  border-bottom: 2px solid #2a7ae4;
+  border-bottom: 3px solid #2a7ae4;
+  background-image: url(Logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: right;
 }
 
 .swagger-ui .topbar .topbar-wrapper,
