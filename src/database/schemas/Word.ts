@@ -25,8 +25,14 @@ const Word = new mongoose.Schema(
         createAt: {
             type: Date,
             default: timeStampFromTheServer,
+            immutable: true,
         }
     }
 )
+
+Word.pre('save', function (next) {
+    this.createAt = timeStampFromTheServer;
+    next();
+});
 
 export default mongoose.model("Word", Word);
