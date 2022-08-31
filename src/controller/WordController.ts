@@ -29,6 +29,14 @@ class WordController {
 
     async create(request: Request, response: Response) {
         const { wordName, languageId, userId } = request.body;
+        const languages = ["en", "fr", "pt"]
+        if (languages.indexOf(languageId) < 0) {
+            return response.status(400).send({
+                error: "Invalid language",
+                message: "Choose one of these languages: en, fr, pt",
+            })
+        }
+
         Word.findOne({ wordName: wordName, languageId: languageId, userId: userId }, function (err, doc) {
             console.debug("doc", arguments);
             if (err) {
