@@ -29,7 +29,10 @@ class WordController {
 
     async create(request: Request, response: Response) {
         const { wordName, languageId, userId } = request.body;
-        const languages = ["en", "fr", "pt"]
+        //TODO: Get languages from database
+        const languages = ["en", "fr", "pt"];
+
+        //If language is different from the const, throw an 400 error
         if (languages.indexOf(languageId) < 0) {
             return response.status(400).send({
                 error: "Invalid language",
@@ -37,14 +40,15 @@ class WordController {
             })
         }
 
+        //Try to get the words from DB
         Word.findOne({ wordName: wordName, languageId: languageId, userId: userId }, function (err, doc) {
-            console.debug("doc", arguments);
             if (err) {
                 return response.status(500).send({
                     error: "Registration error",
                     message: err,
                 })
             }
+            //If it finds the word, the word already exists. Throw a 422 error
             if (doc) {
                 return response.status(422).json({
                     error: "Word already exists",
@@ -52,7 +56,9 @@ class WordController {
                 });
             }
             else {
+                //Saving the word in the DB
                 const word = Word.create({ wordName: wordName, languageId: languageId, userId: userId }, function (errx, docx) {
+                    //If error name's equal to ValidationError, it means the payload is probably incorrect. Throw a 400 error
                     if (errx?.name === "ValidationError") {
                         return response.status(400).send({
                             error: "Invalid data",
@@ -65,6 +71,7 @@ class WordController {
                             message: errx,
                         })
                     }
+                    //The word was saved and the user get the response and status code 201
                     return response.status(201).json(docx);
                 });
             }
