@@ -41,7 +41,7 @@ class WordController {
         }
 
         //Try to get the words from DB
-        Word.findOne({ wordName: wordName, languageId: languageId, userId: userId }, function (err, doc) {
+        Word.findOne({ wordName, languageId, userId }, function (err, doc) {
             if (err) {
                 return response.status(500).send({
                     error: "Registration error",
@@ -57,7 +57,7 @@ class WordController {
             }
             else {
                 //Saving the word in the DB
-                const word = Word.create({ wordName: wordName, languageId: languageId, userId: userId }, function (errx, docx) {
+                const word = Word.create({ wordName, languageId, userId }, function (errx, docx) {
                     //If error name's equal to ValidationError, it means the payload is probably incorrect. Throw a 400 error
                     if (errx?.name === "ValidationError") {
                         return response.status(400).send({
