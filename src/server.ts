@@ -23,7 +23,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 mongoose.connect(process.env.MONGODB_URI || "", {
-    dbName: "WordsThatIKnowMongoDB"
+    dbName: process.env.MONGODB_NAME
 })
     .then(() => console.debug("Database connected!"))
     .catch(err => { console.debug(err) });
