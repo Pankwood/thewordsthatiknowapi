@@ -20,7 +20,7 @@ class WordController {
             return response.json(words);
         } catch (error) {
             return response.status(500).send({
-                error: "Unable to retrieve word",
+                error: "Unable to retrieve words",
                 message: error,
             })
         }

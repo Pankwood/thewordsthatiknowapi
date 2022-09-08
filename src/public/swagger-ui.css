@@ -10959,7 +10959,7 @@
 
 .swagger-ui table tbody tr td:first-of-type {
   min-width: 6em;
-  padding: 10px 0
+  padding: 10px 0;
 }
 
 .swagger-ui table thead tr td,
