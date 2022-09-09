@@ -25,7 +25,7 @@ if (process.env.NODE_ENV !== 'production') {
 mongoose.connect(process.env.MONGODB_URI || "", {
     dbName: process.env.MONGODB_NAME
 })
-    .then(() => console.debug("Database connected!"))
+    .then(() => console.debug("Database connected! DBName: " + process.env.MONGODB_NAME))
     .catch(err => { console.debug(err) });
 
 const swaggerUi = require('swagger-ui-express');
@@ -36,8 +36,8 @@ app.use('/public', express.static(path.join(SRC_FOLDER, 'public')));
 app.use('/', swaggerUi.serve);
 app.get('/', swaggerUi.setup(swaggerDocument, options));
 
-app.listen(5000, () => {
-    console.debug("Running on port 5000.");
+app.listen(process.env.PORT, () => {
+    console.debug("Access it at: http://localhost:" + process.env.PORT);
 });
 
 export default app;
