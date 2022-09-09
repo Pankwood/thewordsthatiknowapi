@@ -25,8 +25,21 @@ if (process.env.NODE_ENV !== 'production') {
 mongoose.connect(process.env.MONGODB_URI || "", {
     dbName: process.env.MONGODB_NAME
 })
-    .then(() => console.debug("Database connected!"))
+    .then(() => console.debug("Database connected! DBName: " + process.env.MONGODB_NAME))
     .catch(err => { console.debug(err) });
+
+const fs = require('fs');
+const fileName = './swagger.json';
+const file = require(fileName);
+
+if (file && file.host)
+    file.host = process.env.SWAGGER_HOST || "";
+
+fs.writeFile(fileName, JSON.stringify(file, null, 2), function writeJSON(err) {
+    if (err)
+        return console.log(err);
+    console.debug('Updated swagger.json');
+});
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
@@ -36,8 +49,8 @@ app.use('/public', express.static(path.join(SRC_FOLDER, 'public')));
 app.use('/', swaggerUi.serve);
 app.get('/', swaggerUi.setup(swaggerDocument, options));
 
-app.listen(5000, () => {
-    console.debug("Running on port 5000.");
+app.listen(process.env.PORT, () => {
+    console.debug("Access it at: http://localhost:" + process.env.PORT);
 });
 
 export default app;
