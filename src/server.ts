@@ -35,6 +35,9 @@ const file = require(fileName);
 if (file && file.host)
     file.host = process.env.SWAGGER_HOST || "";
 
+if (file && file.schemes)
+    file.schemes[0] = process.env.SWAGGER_SCHEME || "";
+
 fs.writeFile(fileName, JSON.stringify(file, null, 2), function writeJSON(err) {
     if (err)
         return console.log(err);
