@@ -36,6 +36,19 @@ app.use('/public', express.static(path.join(SRC_FOLDER, 'public')));
 app.use('/', swaggerUi.serve);
 app.get('/', swaggerUi.setup(swaggerDocument, options));
 
+const fs = require('fs');
+const fileName = './swagger.json';
+const file = require(fileName);
+
+if (file && file.host)
+    file.host = process.env.SWAGGER_HOST || "";
+
+fs.writeFile(fileName, JSON.stringify(file, null, 2), function writeJSON(err) {
+    if (err)
+        return console.log(err);
+    console.debug('Updated swagger.json');
+});
+
 app.listen(process.env.PORT, () => {
     console.debug("Access it at: http://localhost:" + process.env.PORT);
 });
