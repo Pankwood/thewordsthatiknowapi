@@ -28,14 +28,6 @@ mongoose.connect(process.env.MONGODB_URI || "", {
     .then(() => console.debug("Database connected! DBName: " + process.env.MONGODB_NAME))
     .catch(err => { console.debug(err) });
 
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
-const options = { customCssUrl: '/public/swagger-ui.css', customSiteTitle: "The Words That I Know API - Swagger" };
-
-app.use('/public', express.static(path.join(SRC_FOLDER, 'public')));
-app.use('/', swaggerUi.serve);
-app.get('/', swaggerUi.setup(swaggerDocument, options));
-
 const fs = require('fs');
 const fileName = './swagger.json';
 const file = require(fileName);
@@ -48,6 +40,14 @@ fs.writeFile(fileName, JSON.stringify(file, null, 2), function writeJSON(err) {
         return console.log(err);
     console.debug('Updated swagger.json');
 });
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+const options = { customCssUrl: '/public/swagger-ui.css', customSiteTitle: "The Words That I Know API - Swagger" };
+
+app.use('/public', express.static(path.join(SRC_FOLDER, 'public')));
+app.use('/', swaggerUi.serve);
+app.get('/', swaggerUi.setup(swaggerDocument, options));
 
 app.listen(process.env.PORT, () => {
     console.debug("Access it at: http://localhost:" + process.env.PORT);
