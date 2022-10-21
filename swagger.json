@@ -1,15 +1,9 @@
 {
   "swagger": "2.0",
-  "components": {
-    "securitySchemes": {
-      "basicAuth": {
-        "type": "http",
-        "scheme": "basic"
-      }
+  "securityDefinitions": {
+    "basicAuth": {
+      "type": "basic"
     }
-  },
-  "security": {
-    "basicAuth": []
   },
   "info": {
     "version": "1.0.0",
@@ -51,6 +45,11 @@
         }
       },
       "post": {
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
         "tags": [
           "Word"
         ],
@@ -88,27 +87,22 @@
         }
       },
       "delete": {
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
         "tags": [
           "Word"
         ],
-        "summary": "Delete word",
-        "description": "Delete word",
-        "parameters": [
-          {
-            "name": "word",
-            "in": "body",
-            "description": "Word that you want to delete",
-            "schema": {
-              "$ref": "#/definitions/Word"
-            }
-          }
-        ],
+        "summary": "Delete all words",
+        "description": "Delete all words",
         "produces": [
           "application/json"
         ],
         "responses": {
           "200": {
-            "description": "Word deleted",
+            "description": "All words deleted",
             "schema": {
               "$ref": "#/definitions/Word"
             }
@@ -162,6 +156,11 @@
         }
       },
       "delete": {
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
         "tags": [
           "Word"
         ],
@@ -227,7 +226,8 @@
     "Word": {
       "required": [
         "wordName",
-        "languageId"
+        "languageId",
+        "userId"
       ],
       "properties": {
         "wordName": {
@@ -241,6 +241,10 @@
             "pt",
             "fr"
           ]
+        },
+        "userId": {
+          "type": "string",
+          "example": "1"
         }
       }
     },
