@@ -1,5 +1,16 @@
 {
     "swagger": "2.0",
+    "components": {
+        "securitySchemes": {
+            "basicAuth": {
+                "type": "http",
+                "scheme": "basic"
+            }
+        }
+    },
+    "security": {
+        "basicAuth": []
+    },
     "info": {
         "version": "1.0.0",
         "title": "Words That I Know API",
@@ -40,6 +51,9 @@
                 }
             },
             "post": {
+                "security": {
+                    "basicAuth": []
+                },
                 "tags": [
                     "Word"
                 ],
