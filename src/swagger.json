@@ -114,6 +114,84 @@
                 }
             }
         },
+        "/word/{wordName}/language/{languageId}": {
+            "get": {
+                "tags": [
+                    "Word"
+                ],
+                "summary": "Get word by word and language",
+                "parameters": [
+                    {
+                        "name": "wordName",
+                        "in": "path",
+                        "description": "Word that we want to find",
+                        "schema": {
+                            "$ref": "#/definitions/Word"
+                        }
+                    },
+                    {
+                        "name": "languageId",
+                        "in": "path",
+                        "description": "Language related to the word",
+                        "schema": {
+                            "$ref": "#/definitions/Word"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Word"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to retrieve word"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Word"
+                ],
+                "summary": "Delete word by word and language",
+                "parameters": [
+                    {
+                        "name": "wordName",
+                        "in": "path",
+                        "description": "Word that we want to delete",
+                        "schema": {
+                            "$ref": "#/definitions/Word"
+                        }
+                    },
+                    {
+                        "name": "languageId",
+                        "in": "path",
+                        "description": "Language related to the word",
+                        "schema": {
+                            "$ref": "#/definitions/Word"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Word"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/Word"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to retrieve word"
+                    }
+                }
+            }
+        },
         "/language": {
             "get": {
                 "tags": [

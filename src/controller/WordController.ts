@@ -80,7 +80,7 @@ class WordController {
 
     async deleteByWordAndLanguage(request: Request, response: Response) {
         try {
-            const words = await Word.findOneAndDelete(request.body);
+            const words = await Word.findOneAndDelete(request.params);
             if (words)
                 return response.json(words);
             else
@@ -88,6 +88,19 @@ class WordController {
                     error: "Not Found",
                     message: "Word doesn't exist",
                 })
+        } catch (error) {
+            return response.status(500).send({
+                error: "Unable to delete word",
+                message: error,
+            })
+        }
+
+    }
+
+    async deleteAll(request: Request, response: Response) {
+        try {
+            const words = await Word.deleteMany();
+            return response.json(words);
         } catch (error) {
             return response.status(500).send({
                 error: "Unable to delete words",
