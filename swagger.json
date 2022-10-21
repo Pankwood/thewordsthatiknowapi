@@ -51,9 +51,6 @@
         }
       },
       "post": {
-        "security": {
-          "basicAuth": []
-        },
         "tags": [
           "Word"
         ],
