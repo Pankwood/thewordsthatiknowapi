@@ -75,6 +75,43 @@
             "description": "Registration error"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "Word"
+        ],
+        "summary": "Delete word",
+        "description": "Delete word",
+        "parameters": [
+          {
+            "name": "word",
+            "in": "body",
+            "description": "Word that you want to delete",
+            "schema": {
+              "$ref": "#/definitions/Word"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Word deleted",
+            "schema": {
+              "$ref": "#/definitions/Word"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Delete error"
+          }
+        }
       }
     },
     "/language": {

@@ -8,6 +8,7 @@ const routes = Router();
 routes.get("/word", WordController.find);
 routes.get("/word/:wordName/language/:languageId", WordController.findByWordAndLanguage);
 routes.post("/word", BasicAuthentication, WordController.create);
+routes.delete("/word", BasicAuthentication, WordController.deleteByWordAndLanguage);
 routes.get("/language", LanguageController.find);
 
 export default routes;
