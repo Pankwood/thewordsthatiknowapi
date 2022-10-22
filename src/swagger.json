@@ -1,5 +1,10 @@
 {
     "swagger": "2.0",
+    "securityDefinitions": {
+        "basicAuth": {
+            "type": "basic"
+        }
+    },
     "info": {
         "version": "1.0.0",
         "title": "Words That I Know API",
@@ -40,6 +45,11 @@
                 }
             },
             "post": {
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
                 "tags": [
                     "Word"
                 ],
@@ -75,6 +85,121 @@
                         "description": "Registration error"
                     }
                 }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "tags": [
+                    "Word"
+                ],
+                "summary": "Delete all words",
+                "description": "Delete all words",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "All words deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Word"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Delete error"
+                    }
+                }
+            }
+        },
+        "/word/{wordName}/language/{languageId}": {
+            "get": {
+                "tags": [
+                    "Word"
+                ],
+                "summary": "Get word by word and language",
+                "parameters": [
+                    {
+                        "name": "wordName",
+                        "in": "path",
+                        "description": "Word that we want to find",
+                        "schema": {
+                            "$ref": "#/definitions/Word"
+                        }
+                    },
+                    {
+                        "name": "languageId",
+                        "in": "path",
+                        "description": "Language related to the word",
+                        "schema": {
+                            "$ref": "#/definitions/Word"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Word"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to retrieve word"
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ],
+                "tags": [
+                    "Word"
+                ],
+                "summary": "Delete word by word and language",
+                "parameters": [
+                    {
+                        "name": "wordName",
+                        "in": "path",
+                        "description": "Word that we want to delete",
+                        "schema": {
+                            "$ref": "#/definitions/Word"
+                        }
+                    },
+                    {
+                        "name": "languageId",
+                        "in": "path",
+                        "description": "Language related to the word",
+                        "schema": {
+                            "$ref": "#/definitions/Word"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Word"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/Word"
+                        }
+                    },
+                    "500": {
+                        "description": "Unable to retrieve word"
+                    }
+                }
             }
         },
         "/language": {
@@ -101,7 +226,8 @@
         "Word": {
             "required": [
                 "wordName",
-                "languageId"
+                "languageId",
+                "userId"
             ],
             "properties": {
                 "wordName": {
@@ -115,6 +241,10 @@
                         "pt",
                         "fr"
                     ]
+                },
+                "userId": {
+                    "type": "string",
+                    "example": "1"
                 }
             }
         },

@@ -46,11 +46,23 @@ fs.writeFile(fileName, JSON.stringify(file, null, 2), function writeJSON(err) {
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
-const options = { customCssUrl: '/public/swagger-ui.css', customSiteTitle: "The Words That I Know API - Swagger" };
+const swaggerOptions = {
+    customCssUrl: '/public/swagger-ui.css',
+    customSiteTitle: 'The Words That I Know API - Swagger',
+    persistAuthorization: true,
+    basicAuth: {
+        name: 'Authorization',
+        schema: {
+            type: 'basic',
+            in: 'header'
+        },
+        value: 'Basic username:password'
+    }
+};
 
 app.use('/public', express.static(path.join(SRC_FOLDER, 'public')));
 app.use('/', swaggerUi.serve);
-app.get('/', swaggerUi.setup(swaggerDocument, options));
+app.get('/', swaggerUi.setup(swaggerDocument, swaggerOptions));
 
 app.listen(process.env.PORT, () => {
     console.debug("Access it at: http://localhost:" + process.env.PORT);
