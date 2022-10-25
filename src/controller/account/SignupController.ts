@@ -4,14 +4,20 @@ import bcrypt from 'bcryptjs';
 
 class SignupController {
     async signup(request: Request, response: Response) {
-        User.create({
-            email: request.body.email,
-            fullName: request.body.fullName,
-            password: bcrypt.hashSync(request.body.password, 8)
-        });
+        await User.findOne({
+            email: request.body.email
+        }).then(user => {
+            if (user) {
+                return response.status(422).send({ message: "User already exists" });
+            }
 
-        return response.status(201).json(request.body);
-
+            User.create({
+                email: request.body.email,
+                fullName: request.body.fullName,
+                password: bcrypt.hashSync(request.body.password, 8)
+            });
+            return response.status(201).json(request.body);
+        })
     }
 }
 
