@@ -1,5 +1,7 @@
 import { Router } from 'express';
 import BasicAuthentication from './auth';
+import LoginController from './controller/account/LoginController';
+import SignupController from './controller/account/SignupController';
 import LanguageController from './controller/LanguageController';
 import WordController from './controller/WordController';
 
@@ -12,5 +14,9 @@ routes.delete("/word/:wordName/language/:languageId", BasicAuthentication, WordC
 routes.delete("/word", BasicAuthentication, WordController.deleteAll);
 
 routes.get("/language", LanguageController.find);
+
+routes.post("/account/login", BasicAuthentication, LoginController.login);
+routes.post("/account/signup", BasicAuthentication, SignupController.signup);
+
 
 export default routes;
