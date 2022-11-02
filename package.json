@@ -24,6 +24,7 @@
     "vercel": "^19.1.2"
   },
   "devDependencies": {
+    "cypress": "^9.5.1",
     "node-env-run": "^4.0.2"
   }
 }
