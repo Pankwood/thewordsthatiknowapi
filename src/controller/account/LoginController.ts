@@ -23,7 +23,8 @@ class LoginController {
                     message: "Invalid Password!"
                 });
             }
-            var token = jwt.sign({ email: user.email, fullName: user.fullName }, "secret-d41d8cd98f00b204e9800998ecf8427e", {
+            var token = jwt.sign({ email: user.email, fullName: user.fullName, userId: user._id }, 
+                "secret-d41d8cd98f00b204e9800998ecf8427e", {
                 expiresIn: 86400 // 24 hours
             });
 

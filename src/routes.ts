@@ -8,9 +8,9 @@ import WordController from './controller/WordController';
 const routes = Router();
 
 routes.get("/word", WordController.find);
-routes.get("/word/:wordName/language/:languageId", WordController.findByWordAndLanguage);
+routes.get("/word/:wordName/language/:languageId/userId/:userId", WordController.findByParameters);
 routes.post("/word", BasicAuthentication, WordController.create);
-routes.delete("/word/:wordName/language/:languageId", BasicAuthentication, WordController.deleteByWordAndLanguage);
+routes.delete("/word/:wordName/language/:languageId/userId/:userId", BasicAuthentication, WordController.deleteByParameters);
 routes.delete("/word", BasicAuthentication, WordController.deleteAll);
 
 routes.get("/language", LanguageController.find);
