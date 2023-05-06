@@ -14,9 +14,9 @@ const Word = new mongoose.Schema(
             trim: true,
         },
         userId: {
-            type: Number,
-            required: true,
-            trim: true,
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true
         },
         languageId: {
             type: String,

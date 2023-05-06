@@ -14,7 +14,7 @@ class WordController {
         }
     }
 
-    async findByWordAndLanguage(request: Request, response: Response) {
+    async findByParameters(request: Request, response: Response) {
         try {
             const words = await Word.findOne(request.params);
             return response.json(words);
@@ -78,7 +78,7 @@ class WordController {
         });
     }
 
-    async deleteByWordAndLanguage(request: Request, response: Response) {
+    async deleteByParameters(request: Request, response: Response) {
         try {
             const words = await Word.findOneAndDelete(request.params);
             if (words)
