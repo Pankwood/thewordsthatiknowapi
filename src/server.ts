@@ -15,7 +15,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 
-app.use(cors());
+const corsOptions = {
+    origin: 'https://thewordsthatiknow-app.vercel.app', // Replace with your frontend URL
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    optionsSuccessStatus: 204,
+};
+app.use(cors(corsOptions));
 app.use(routes);
 
 if (process.env.NODE_ENV !== 'production') {
