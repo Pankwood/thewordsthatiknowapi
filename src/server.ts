@@ -19,6 +19,8 @@ const corsOptions = {
     origin: [
         'thewordsthatiknow-app.vercel.app',
         'thewordsthatiknow.com',
+        'www.thewordsthatiknow-app.vercel.app',
+        'www.thewordsthatiknow.com',
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     optionsSuccessStatus: 204,
