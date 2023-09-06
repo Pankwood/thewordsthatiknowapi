@@ -16,7 +16,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const corsOptions = {
-    origin: 'https://thewordsthatiknow-app.vercel.app', // Replace with your frontend URL
+    origin: [
+        'thewordsthatiknow-app.vercel.app',
+        'thewordsthatiknow.com',
+    ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     optionsSuccessStatus: 204,
 };
