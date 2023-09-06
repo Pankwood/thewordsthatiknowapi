@@ -21,6 +21,7 @@ const corsOptions = {
         'thewordsthatiknow.com',
         'www.thewordsthatiknow-app.vercel.app',
         'www.thewordsthatiknow.com',
+        'https://www.thewordsthatiknow.com'
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     optionsSuccessStatus: 204,
